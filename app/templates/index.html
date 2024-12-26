@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome to the Library Management System</h1>
+    
+    <!-- Single Search Form for Books and Members -->
+    <form id="searchForm" class="search-form">
+        <input type="text" id="search" placeholder="Search books or members...">
+        <button type="submit">Search</button>
+    </form>
+    
+    <!-- Results for Books -->
+    <div id="results" class="results-container"></div>
+
+    <script>
+        // Search for Books and Members (Single Search Bar)
+        document.getElementById('searchForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const query = document.getElementById('search').value;
+
+            if (!query) {
+                return;
+            }
+
+            // Search for Books
+            const bookResponse = await fetch(`/books?search=${query}`);
+            const books = await bookResponse.json();
+            
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+
+            if (books && books.length > 0) {
+                // Display Books
+                books.forEach(book => {
+                    const bookCard = document.createElement('div');
+                    bookCard.classList.add('book-card');
+                    bookCard.innerHTML = `
+                        <img src="${book.image}" alt="${book.title}" class="book-image">
+                        <h3>${book.title}</h3>
+                        <p class="author">Author: ${book.author}</p>
+                        <p class="category">Category: ${book.category}</p>
+                        <p class="published_date">Published Date: ${book.published_date}</p>
+                        <p class="copies">Available Copies: ${book.copies_available}</p>
+                    `;
+                    resultsContainer.appendChild(bookCard);
+                });
+            } else {
+                // If no books found, try searching for members
+                const memberResponse = await fetch(`/members?search=${query}`);
+                const members = await memberResponse.json();
+
+                if (members && members.length > 0) {
+                    // Display Members
+                    members.forEach(member => {
+                        const memberCard = document.createElement('div');
+                        memberCard.classList.add('member-card');
+                        memberCard.innerHTML = `
+                            <h3>${member.name}</h3>
+                            <p class="email">Email: ${member.email}</p>
+                            <p class="join_date">Join Date: ${member.join_date}</p>
+                        `;
+                        resultsContainer.appendChild(memberCard);
+                    });
+                } else {
+                    // No results found for both books and members
+                    resultsContainer.innerHTML = '<p>No results found.</p>';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

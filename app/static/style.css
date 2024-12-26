@@ -1,0 +1,219 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #34495e;
+    margin: 30px 0;
+    font-size: 2.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Bar Styling */
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #34495e;
+    border-radius: 30px;
+    width: 300px;
+    margin-right: 10px;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #1abc9c;
+    box-shadow: 0 0 10px rgba(26, 188, 156, 0.4);
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #16a085;
+    transform: translateY(-2px);
+}
+
+/* Results Section */
+#results, #members-results {
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+#results pre, #members-results pre {
+    color: #34495e;
+    font-size: 1.1rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Book Card Styles */
+.book-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    width: 250px;
+    margin: 10px;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(145deg, #ffffff, #f9f9f9);
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(145deg, #f9f9f9, #ffffff);
+}
+
+.book-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.book-card h3 {
+    color: #34495e;
+    font-size: 1.6rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.book-card p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.book-card .category {
+    font-weight: bold;
+    color: #1abc9c;
+}
+
+.book-card .published_date {
+    font-size: 14px;
+    color: #888;
+}
+
+.book-card .copies {
+    font-size: 14px;
+    font-weight: bold;
+    color: #34495e;
+}
+
+#books-results {
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Member Card Styles */
+.member-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    width: 250px;
+    margin: 10px;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(145deg, #ffffff, #f9f9f9);
+}
+
+.member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(145deg, #f9f9f9, #ffffff);
+}
+
+.member-card h3 {
+    color: #34495e;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.member-card p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.member-card .join_date {
+    font-weight: bold;
+    color: #1abc9c;
+}
+
+.member-card .email {
+    font-size: 14px;
+    color: #555;
+}
+
+#members-results {
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    input[type="text"] {
+        width: 70%;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #results, #members-results, #books-results {
+        width: 90%;
+    }
+
+    .book-card, .member-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
