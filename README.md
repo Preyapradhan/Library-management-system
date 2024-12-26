@@ -120,3 +120,12 @@ The front-end of the application is built using HTML, CSS, and JavaScript. It pr
 - A responsive interface to search for books and members.
 - Dynamic display of search results for books and members.
 - Interactive book and member cards that show detailed information.
+
+![Screenshot 2024-12-26 214035](https://github.com/user-attachments/assets/52beeb0c-badd-4a29-ac08-46a7970c26d8)
+
+![Screenshot 2024-12-26 213939](https://github.com/user-attachments/assets/98231c98-e966-4eb2-8bea-92536424770a)
+
+![Screenshot 2024-12-26 214011](https://github.com/user-attachments/assets/87009c44-e134-4bfe-818c-ee7f1d2971a6)
+
+![Screenshot 2024-12-26 214027](https://github.com/user-attachments/assets/dd8aa6ff-ba03-46fc-a6ad-43a43b3ffccd)
+
